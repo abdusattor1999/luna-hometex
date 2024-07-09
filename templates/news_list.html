@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{% block title %}
+{% trans "Luna • Yangiliklar" %}
+{% endblock title %}
+
+{% block content %}
+
+<section class="contact-section section-padding">
+    <div class="container">
+        <div class="row d-flex flex-wrap align-items-center">
+            <div class="col-lg-12 col-12">
+                <h2 class="mb-4">{% trans "Yangiliklar" %}</h2>
+            </div>
+            {% for new in news %}
+            <div class="col-lg-6 col-12">
+                <div class="card product-card">
+                    <img src="{{ new.image.url }}" class="card-img-top" alt="Product Image">
+                    <a href="{% url 'news:news_detail' new.id %}" class="link">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ new.title|truncatechars:25 }}</h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

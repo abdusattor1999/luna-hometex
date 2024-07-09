@@ -1,0 +1,101 @@
+{% load static %}
+{% load i18n %}
+
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <link rel="icon" href="{% static 'images/circle_logo.png' %}" type="image/icon type">
+        <title>
+            {% block title %}
+                Luna hometex
+            {% endblock title %}
+        </title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;300;400;600;700&display=swap" rel="stylesheet">
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/bootstrap-icons.css' %}" rel="stylesheet">
+        <link href="{% static 'css/owl.carousel.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/tooplate-moso-interior.css' %}" rel="stylesheet">
+    </head>
+    
+    <body>
+
+        <nav class="navbar navbar-expand-lg bg-light fixed-top shadow-lg">
+            <div class="container">
+                <a class="navbar-brand" href="{% url 'news:index' %}"><span class="tooplate-red">Luna</span> Hometex</a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="">
+                            <a class="nav-link" href="{% url 'news:index' %}">{% trans "Bosh sahifa" %}</a>
+                        </li>
+
+                        <li class="">
+                            <a class="nav-link" href="{% url 'news:about' %}">{% trans "Biz haqimizda" %}</a>
+                        </li>
+
+                        
+                        <li class="">
+                            <a class="nav-link" href="{% url 'news:news_list' %}">{% trans "Yangiliklar" %}</a>
+                        </li>
+                        
+                        <li class="">
+                            <a class="nav-link" href="{% url 'news:contact' %}">{% trans "Bog'lanish" %}</a>
+                        </li>
+                        <li class="">
+                            <a class="nav-link" href="/dashboard/">{% trans "Tizimga kirish" %}</a>
+                        </li>
+                        <li class="dropdown">
+                            {% get_current_language as LANGUAGE_CODE %}
+                            {% get_available_languages as LANGUAGES %}
+                            {% get_language_info_list for LANGUAGES as languages %}
+                            <a class="nav-link dropdown-toggle click-scroll" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{LANGUAGE_CODE}}</a>
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                {% for lang in languages %}
+                                    {% if lang.code != LANGUAGE_CODE %}
+                                        <li><a class="dropdown-item" href="/{{lang.code}}/">{{lang.code}}</a></li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        {% block content %}
+        {% endblock content %}
+        
+        <footer class="footer mt-auto py-1 bg-light mt-5 fixed-bottom">
+            <div class="container d-flex justify-content-between">
+              <div class="text-muted">
+                &copy;2024: <a href="https://linktr.ee/abdusattor" target="_blank" rel="noopener noreferrer">Abdusattor</a>
+              </div>
+            </div>
+        </footer>
+
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/click-scroll.js' %}"></script>
+        <script src="{% static 'js/jquery.backstretch.min.js' %}"></script>
+        <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'js/custom.js' %}"></script>
+
+    </body>
+</html>
+
+
+

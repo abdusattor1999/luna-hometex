@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{% block title %}
+{% trans "Luna • Bog'lanish" %}
+{% endblock title %}
+
+{% block content %}
+
+<section class="contact-section section-padding">
+    <div class="container">
+        <div class="row d-flex flex-wrap align-items-center">
+            {% if messages %}
+                <div class="messages">
+                    {% for message in messages %}
+                        <h6 class="text-muted">{{ message }}</h6>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <div class="col-lg-12 col-12">
+                <h2 class="mb-4">{% trans "Bog'lanish" %}</h2>
+            </div>
+
+            <div class="col-lg-6 col-12">
+                <form class="custom-form contact-form" action="." method="post" role="form">
+                    {% csrf_token %}
+                  
+                    <div class="row align-items-center">
+                      <div class="col-lg-6">
+                            <div class="input-group align-items-center">
+                                {{ form.first_name.label_tag }}  {{ form.first_name }}  {{ form.first_name.errors }}
+                            </div>
+                      </div>
+                  
+                      <div class="col-lg-6 col-12">
+                            <div class="input-group align-items-center">
+                                {{ form.last_name.label_tag }}  {{ form.last_name }}  {{ form.last_name.errors }}  
+                            </div>
+                      </div>
+                    </div>
+                  
+                    <div class="input-group align-items-center">
+                      {{ form.email.label_tag }}  {{ form.email }}  {{ form.email.errors }}
+                    </div>
+                  
+                    <div class="input-group textarea-group">
+                      {{ form.message.label_tag }}  {{ form.message }}  {{ form.message.errors }}
+                    </div>
+                  
+                    <div class="col-lg-6 col-md-4 col-6">
+                      <button type="submit" class="form-control">{% trans "Yuborish" %}</button>
+                    </div>
+                  </form>
+
+                {% comment %} <form class="custom-form contact-form" action="." method="post" role="form">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="input-group align-items-center">
+                                <label for="first-name">{% trans "Ismingiz:" %}</label>
+                                <input type="text" name="first-name" id="first-name" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="input-group align-items-center">
+                                <label for="last-name">{% trans "Familiyangiz:" %}</label>
+                                <input type="text" name="last-name" id="last-name" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group align-items-center">
+                        <label for="email">{% trans "Email:" %}</label>
+                         <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control">
+                    </div>
+
+                    <div class="input-group textarea-group">
+                        <label for="message">{% trans "Habar matni:" %}</label>
+                        <textarea name="message" rows="6" class="form-control" id="message"></textarea>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <button type="submit" class="form-control">{% trans "Yuborish" %}</button>
+                    </div>
+                </form> {% endcomment %}
+            </div>
+
+            <div class="col-lg-6 col-12 mt-5 mt-lg-0">
+                <div class="custom-block">
+                    <h3 class="text-white mb-2">{% trans "Manzil" %}</h3>
+                    <p class="text-white mb-2">
+                        <i class="contact-icon bi-geo-alt me-1"></i>
+                        {% trans "Namangan, Davlatobod tumani, Yuqori Rovuston T.Nazarov ko’cha 151 uy" %}
+                    </p>
+
+                    <h3 class="text-white mt-3 mb-2">{% trans "Aloqa uchun" %}</h3>
+
+                    <div class="d-flex flex-wrap">
+                        <p class="text-white mb-2 me-4">
+                            <i class="contact-icon bi-telephone me-1"></i>
+                            <a href="tel:+998882551700" class="text-white">
+                                +998882551700
+                            </a>
+                        </p>
+
+                        <p class="text-white">
+                            <i class="contact-icon bi-envelope me-1"></i>
+                            <a href="mailto:Lunahometex@gmail.com" class="text-white">
+                                Lunahometex@gmail.com
+                            </a>
+                        </p>
+                    </div>
+                    <iframe class="google-map mt-2" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d752.9556573430079!2d71.592441!3d40.9853646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38bb4b067449f36b%3A0x70f022924357718!2sLuna%20hometex!5e0!3m2!1suz!2s!4v1720427981059!5m2!1suz!2s" width="100%" height="220" style="border:3px solid white;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br/>
+{% endblock content %}

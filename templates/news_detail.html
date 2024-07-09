@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+Luna • {{ new.title|truncatechars:20 }}
+{% endblock title %}
+
+{% block content %}
+
+<div class="section-padding">
+    <div class="container">
+        <div class="row">
+            <img src="{{ new.image.url }}" alt="{{product.title}}">
+        </div>
+        <div class="row py-3">
+            <h4>{{ new.title }}</h4>
+            <p>{{ new.body|safe }}</p>
+        </div>
+        <div class="row">
+            <img src="{{ new.get_second_image }}" alt="">
+            <p>{{ new.body2|safe }}</p>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
