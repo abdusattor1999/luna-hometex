@@ -8,7 +8,7 @@ SECRET_KEY = 'django-insecure-mxx3w)_r0u65e_lgooi8^eq6$8miqftor)3_%(0cgaenh#h0t&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["lunahometex.uz", "www.lunahometex.uz", "127.0.0.1"]
 BOT_TOKEN = "6641609626:AAHjwpy3Ndqrwcz52yW5J7j6Uy_R2VSate8"
 ADMIN_ID = 148603286
 
@@ -114,23 +114,30 @@ LOCALE_PATHS = (
 )
 
 
+# Static settings for ahost
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 
 STATIC_URL = '/static/'
-# STATIC_ROOT = 'assets/'
-STATIC_DIRS = [str(BASE_DIR.joinpath('static'))]
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/')]
-MEDIA_URL = '/media/'
-MEDIA_ROOT = 'media/'
+MEDIA_URL='/media/'
+STATICFILES_DIRS = [
+    os.path.join(ROOT_DIR, 'static'),
+] 
+STATICFILES_DIRS=[str(BASE_DIR) + "/assets",]
+STATIC_ROOT='/home/lunahome/public_html/static'
+MEDIA_ROOT='/home/lunahome/public_html/media'
+
+
+
+# STATIC_URL = '/static/'
+# # STATIC_ROOT = 'assets/'
+# STATIC_DIRS = [str(BASE_DIR.joinpath('static'))]
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/')]
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = 'media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'server3.ahost.uz'
-# EMAIL_USE_TLS = True
-# EMAIL_PORT = 587
-# EMAIL_HOST_USER = 'teenagers.data@gmail.com'
-# EMAIL_HOST_PASSWORD = 'ahpc rvwo wlxl qsle'
-
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
