@@ -66,6 +66,7 @@ DATABASES = {
     }
 }
 
+# For dev mode
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
@@ -116,26 +117,14 @@ LOCALE_PATHS = (
 
 # Static settings for ahost
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ROOT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
 
 STATIC_URL = '/static/'
-MEDIA_URL='/media/'
-STATICFILES_DIRS = [
-    os.path.join(ROOT_DIR, 'static'),
-] 
-STATICFILES_DIRS=[str(BASE_DIR) + "/assets",]
-STATIC_ROOT='/home/lunahome/public_html/static'
-MEDIA_ROOT='/home/lunahome/public_html/media'
+# The directory where `collectstatic` will collect static files for deployment.
+STATIC_ROOT = '/home/lunahome/public_html/assets/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-
-
-# STATIC_URL = '/static/'
-# # STATIC_ROOT = 'assets/'
-# STATIC_DIRS = [str(BASE_DIR.joinpath('static'))]
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/')]
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = 'media/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = 'media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTHENTICATION_BACKENDS = (
