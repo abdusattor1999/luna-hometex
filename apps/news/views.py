@@ -18,7 +18,6 @@ def send_message(text, chat_id):
     return req.status_code
 
 def index(request):
-    print("Language: ", get_language())
     products = Product.objects.all()
     news = News.objects.all()
     return render(request, "index.html", locals())

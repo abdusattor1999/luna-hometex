@@ -27,8 +27,8 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -57,10 +57,25 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'lunahome_db',
+        'USER': 'lunahome_user',
+        'PASSWORD': 'lunahome_pass',
+        'HOST': 'localhost',
+        'PORT': 5432,
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'lunahome_db',
+#         'USER': 'postgres',
+#         'PASSWORD': 'postgres_pass',
+#         'HOST': 'localhost',
+#         'PORT': 5432,
+#     }
+# }
 
 
 # Password validation
@@ -84,22 +99,20 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 from django.utils.translation import gettext_lazy as _
-LOCALE_PATHS = [
-    os.path.join(BASE_DIR, 'locale'),
-]
+
 LANGUAGE_CODE = 'uz'
 LANGUAGES = [
     ('uz', _("O'zbek")),
     ('ru', _('Русский')),
     ('en', _('English')),
 ]
-
 TIME_ZONE = 'Asia/Tashkent'
 USE_I18N = True
 USE_TZ = True
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, "locale"),
+)
 
-
-LOCALE_PATHS = os.path.join(BASE_DIR, "locale/"),
 
 
 STATIC_URL = '/static/'
