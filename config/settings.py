@@ -1,4 +1,3 @@
-
 from pathlib import Path
 import os
 
@@ -6,7 +5,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-mxx3w)_r0u65e_lgooi8^eq6$8miqftor)3_%(0cgaenh#h0t&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG", True)
 
 ALLOWED_HOSTS = ["lunahometex.uz", "www.lunahometex.uz", "127.0.0.1"]
 BOT_TOKEN = "6641609626:AAHjwpy3Ndqrwcz52yW5J7j6Uy_R2VSate8"
@@ -59,8 +58,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'lunahome_db',
-        'USER': 'lunahome_user',
-        'PASSWORD': 'lunahome_pass',
+        'USER': 'postgres' if DEBUG else 'lunahome_user',
+        'PASSWORD': 'postgres_pass' if DEBUG else 'lunahome_pass',
         'HOST': 'localhost',
         'PORT': 5432,
     }
@@ -115,12 +114,11 @@ LOCALE_PATHS = (
 )
 
 
-# Static settings for ahost
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 STATIC_URL = '/static/'
 # The directory where `collectstatic` will collect static files for deployment.
-STATIC_ROOT = '/home/lunahome/public_html/assets/'
+STATIC_ROOT = '/home/lunahome/public_html/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 MEDIA_URL = '/media/'
