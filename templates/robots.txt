@@ -1,0 +1,7 @@
+User-agent: Googlebot
+Disallow: /dashboard
+
+User-agent: *
+Disallow: /dashboard
+
+Sitemap: https://www.lunahometex.uz/sitemap.xml

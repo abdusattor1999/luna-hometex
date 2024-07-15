@@ -6,15 +6,38 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+        <meta name="description" content='{% trans "Sochiq va boshqa textil maxsulotlari ishlab chiqaruvchi kompaniya lunahometex.uz" %}'>
+        <link rel="canonical" href="https://lunahometex.uz/">
         <link rel="icon" href="{% static 'images/circle_logo.png' %}" type="image/icon type">
+        <link rel="alternate" href="https://lunahometex.uz/" hreflang="x-default" />
         <title>
             {% block title %}
-                Luna hometex
+                {% trans "lunahometex.uz - bu textil ishlab chiqarish kompaniyasi" %}
             {% endblock title %}
         </title>
+        {% comment %} Verifications and keywords {% endcomment %}
         <meta name="google-site-verification" content="T1rCbLIIjq2B_rDvYMrSnRphfxPTNAES4Ps6-zQ_knU" />
+        <meta name="yandex-verification" content="444c930d1862a9ee" />
+        <meta name="keywords" content="luna, lunahometex, luna hometex, textil, uz textiles, textile, sochiq zavod, sochiq ishlab chiqarish, towel fabric, textile industry">
+        <meta name="robots" content="noindex,nofollow">
+        <meta name="robots" content="index, follow">
+
+        <script async src="https://cdn.ampproject.org/v0.js"></script>
+        <style amp-boilerplate>
+            body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}
+            @-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}
+            @-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}
+            @-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}
+            @-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}
+            @keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}
+        </style>
+        <noscript>
+            <style amp-boilerplate>
+                body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}
+            </style>
+        </noscript>
+
         <link rel="preconnect" href="https://fonts.googleapis.com">        
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;300;400;600;700&display=swap" rel="stylesheet">

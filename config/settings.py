@@ -54,28 +54,28 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'lunahome_db',
-        'USER': 'postgres' if DEBUG else 'lunahome_user',
-        'PASSWORD': 'postgres_pass' if DEBUG else 'lunahome_pass',
-        'HOST': 'localhost',
-        'PORT': 5432,
-    }
-}
-
-# For dev mode
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
 #         'NAME': 'lunahome_db',
-#         'USER': 'postgres',
-#         'PASSWORD': 'postgres_pass',
+#         'USER': 'lunahome_user',
+#         'PASSWORD':'lunahome_pass',
 #         'HOST': 'localhost',
 #         'PORT': 5432,
 #     }
 # }
+
+# For dev mode
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'lunahome_db',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres_pass',
+        'HOST': 'localhost',
+        'PORT': 5432,
+    }
+}
 
 
 # Password validation
