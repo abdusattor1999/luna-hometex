@@ -9,7 +9,7 @@ DEBUG = os.environ.get("DEBUG", True)
 
 ALLOWED_HOSTS = ["lunahometex.uz", "www.lunahometex.uz", "127.0.0.1"]
 BOT_TOKEN = "6641609626:AAHjwpy3Ndqrwcz52yW5J7j6Uy_R2VSate8"
-ADMIN_ID = 148603286
+ADMIN_ID = 1230850799
 
 INSTALLED_APPS = [
     'django.contrib.admin',
